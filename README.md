@@ -1,1 +1,2 @@
 # inherito
+In a world where functional programming is taking over, there is still something magical and beautiful to the inheritance design pattern. There is nothing wrong with thinking ahead to a certain capacity. I've created this little toolkit out of pure love for serving me well over the years. Now officially moving over to functional programming.
