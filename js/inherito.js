@@ -6,9 +6,14 @@ var inHerito = (function(){
 	var
 
 		logObject =  function (instance) {
+			var key, properties = [];
 			console.log('New inHerito instance:', instance.oName)
-			console.dir(Object.keys(instance));
-			console.dir(Object.keys(instance.hasOwnProperty()));
+			for (key in instance) {
+				if (instance.hasOwnProperty(key)) {
+					properties.push(instance);
+				}
+			}
+			console.log(instance.oName, properties);
 		},
 		
 		renderObject =  function (context, obj) {
@@ -18,10 +23,7 @@ var inHerito = (function(){
 		createObject = function(options) {
 			var instance = Object.create(this);
 			instance.oName = options.oName;
-			instance.oType = options.oType;
-			
-			Object.defineProperties(instance, properties)
-			
+			instance.oType = options.oType;			
 			logObject(instance);
 			
 			return instance;
