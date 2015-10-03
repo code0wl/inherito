@@ -3,8 +3,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Document</title>
+		<style>
+			img {
+				width: 400px;
+			}
+		</style>
 	</head>
 	<body>
+		
+		<main class='shell'></main>
 		<script src="inherito.min.js"></script>
 		
 		<script>
@@ -18,15 +25,21 @@
 			// first option is true to log the object in your console
 			// Pass any properties you want
 			var Lisa = Driver.create({
-				car: 'Tesla',
+				car: "Tesla",
 				experience: 4,
-				gender: 'female',
+				gender: "female",
+				view: {
+					imageUrl: "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2013/05/tesla-model-s-road-537x300.jpg",
+					template: new Image(),
+					context: ".shell",
+					parent: document.body
+				},
 				debug: true
 			});
 			
+			// Render object in view
+			Driver.render(document.body);
 			
 		</script>
-		
-		
 	</body>
 </html>

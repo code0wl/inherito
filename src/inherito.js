@@ -4,21 +4,40 @@ var inHerito = (function(){
 	
 	var 
 	
+		/** 
+		 * @private 
+		 * Log object if object has debug set to true
+		*/
 		logObject =  function (instance) {
 			console.dir(instance);
 		},
 		
-		renderObject =  function (context, obj) {
-			context.innerHTML = obj;
+		/** 
+		 * @public
+		 * Render object to DOM
+		*/
+		render = function (instance) {
+			if (instance.view) {
+				let view = instance.view;
+				view.template.src = view.imageUrl;
+				view.parent.querySelector(view.context).appendChild(view.template);
+			} else {
+				return false;
+			}
 		},
 		
+		/**      
+		 * @public
+		 * Create object instance and log or render if true
+		*/
 		createObject = function(...options) {
 			let instance = Object.create(this);
-				
-			options.map(function(currentValue, index){
-				instance = currentValue;				
+			
+			options.map(function(currentValue){
+				instance = currentValue;
 			});
 			
+			instance['view'] ? render(instance) : false;
 			instance['debug'] ? logObject(instance) : false;
 
 			return instance;
@@ -27,7 +46,7 @@ var inHerito = (function(){
 	// public api
 	return {
 		create : createObject,
-		render : renderObject
+		render : render
 	};	
 	
 })();

@@ -1,5 +1,5 @@
-# inHerito
-inHherito is a composable object factory creator that allows you create the objects you want with ease and with the correct inheritance. It allows you to use properties and function methods from other objects without overusing and overinheriting. Every object that is created gets it's own logging information if option is set to true and allows you to keep a mindful eye on your objects.
+# inHerito prototype
+inHherito is a composable factory that allows you create the objects you want with ease and with the correct inheritance. It allows you to use properties and function methods from other objects without overusing and overinheriting. Every object that is created gets it's own logging information if option is set to true and allows you to keep a mindful eye on your objects.
 
 inHerito allows you to pass any object property you may want and it bootstraps this into a new object for you with the correct inheritance with blazing speed.
 
