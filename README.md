@@ -5,11 +5,18 @@ inHerito allows you to pass any object property you may want and it bootstraps t
 
 
 ###How to use
-This script has no depencies except for running it in a ES5 safe environment. Can be used for Node or Window environment. You may use es15 becuase of babel integration. 
-
-	var Racer = inHerito.create({ carType: 'Porche', experience: 400 });
+This script has no depencies except for running it in a ES5 safe environment. Can be used for Node or Window environment. You may use es15 becuase of babel integration.
 Since Racer is the new factory, the options given to it will act as default options. 
-	
-You can then decide to keep using racer by typing
-	var Racer = inHerito.create({ carType: 'Porche', experience: 400 });
 
+	var Racer = inHerito.create({ carType: 'Porche', experience: 400 });
+ 
+You can then decide to keep using racer by typing
+
+	var JohnyFive = new Racer({});
+
+###Running the project
+Ensure that you have gulp-cli installed globally by 
+	
+	$ sudo npm i gulp-cli -g
+	$ npm i 
+	$ gulp serve
