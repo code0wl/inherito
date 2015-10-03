@@ -2,30 +2,29 @@ var inHerito = (function(){
 	
 	'use strict';
 	
-	//private
 	var
-
 		logObject =  function (instance) {
-			var key, properties = [];
-			console.log('New inHerito instance:', instance.oName)
+			let key, properties = [];
 			for (key in instance) {
 				if (instance.hasOwnProperty(key)) {
 					properties.push(instance);
 				}
 			}
-			console.log(instance.oName, properties);
+			console.log('inherito object: ', instance);
 		},
 		
 		renderObject =  function (context, obj) {
 			context.innerHTML = obj;
 		},
 		
-		createObject = function(options) {
-			var instance = Object.create(this);
-			instance.oName = options.oName;
-			instance.oType = options.oType;			
-			logObject(instance);
+		createObject = function(...options) {
+			let instance = Object.create(this);
+				
+			options.map(function(currentValue, index){
+				instance[index] = currentValue;
+			});
 			
+			logObject(instance);
 			return instance;
 		};
 	
@@ -37,5 +36,4 @@ var inHerito = (function(){
 	
 })();
 
-var artist = inHerito.create({oName: 'Musicisian', oType: 'female singer'});
-
+var artist = inHerito.create({kind: 'Musicisian', instrument: 'Guitar', gender: 'female!'});

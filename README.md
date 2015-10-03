@@ -1,11 +1,15 @@
 # inHerito
-In a world where functional programming is taking over. There is still something magical and beautiful about the inheritance design patterns. In JavaScript that translate to the OLOO pattern to be more specific. But Some refer to it as the prototypal design pattern (Not to be confused with the clasical design pattern).
+inHherito is a composable object factory creator that allows you create the objects you want with ease and with the correct inheritance. It allows you to use properties and function methods from other objects without overusing and overinheriting. Every object that is created gets it's own logging information if option is set to true and allows you to keep a mindful eye on your objects.
 
-The main argument for going functional is that you do not have to think too much ahead since your code is very modular and flexible. 
+inHerito allows you to pass any object property you may want and it bootstraps this into a new object for you with the correct inheritance with blazing speed.
 
-There is nothing wrong with thinking ahead to a certain capacity, though. I've created this little toolkit out of pure love, this because OOP has served me well over the years. This is my goodbye to this pattern as I am adopting a more functional way of programming.
-This is the best practices i've gathered from using any prototypical inheritance pattern. For beginners it is simple to pick up and learn OOP in JavaScript and for advanced users it is a lot cleaner code. Since nothing is really sacrafised I can only see gains in using this pattern for object creation and inheritance.
 
 ###How to use
-This script has no depencies except for running it in a ES5 safe environment. Can be used for Node or Window environment.
+This script has no depencies except for running it in a ES5 safe environment. Can be used for Node or Window environment. You may use es15 becuase of babel integration. 
+
+	var Racer = inHerito.create({ carType: 'Porche', experience: 400 });
+Since Racer is the new factory, the options given to it will act as default options. 
+	
+You can then decide to keep using racer by typing
+	var Racer = inHerito.create({ carType: 'Porche', experience: 400 });
 

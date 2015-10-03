@@ -1,0 +1,30 @@
+{
+  "name": "inherito",
+  "version": "1.0.0",
+  "description": "In a world where functional programming is taking over. There is still something magical and beautiful about the inheritance design patterns. In JavaScript that translate to the OLOO pattern to be more specific. But Some refer to it as the prototypal design pattern (Not to be confused with the clasical design pattern).",
+  "main": "index.js",
+  "dependencies": {
+    "babel": "^5.8.23",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "browser-sync": "^2.9.8",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ositoozy/inherito.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ositoozy/inherito/issues"
+  },
+  "homepage": "https://github.com/Ositoozy/inherito#readme"
+}
