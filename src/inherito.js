@@ -8,7 +8,7 @@ var inHerito = (function(){
 		 * @private 
 		 * Log object if object has debug set to true
 		*/
-		logObject =  function (instance) {
+		logObject = (instance) => {
 			console.dir(instance);
 		},
 		
@@ -16,7 +16,7 @@ var inHerito = (function(){
 		 * @public
 		 * Render object to DOM
 		*/
-		render(instance) {
+		render = (instance) => {
 			if (instance.view) {
 				let view = instance.view;
 				view.template.src = view.imageUrl;
@@ -30,7 +30,7 @@ var inHerito = (function(){
 		 * @public
 		 * Create object instance and log or render if true
 		*/
-		createObject(...options) {
+		createObject = (...options) => {
 			let instance = Object.create(this);
 			
 			options.map(function(currentValue){
