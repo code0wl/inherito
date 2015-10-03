@@ -2,15 +2,10 @@ var inHerito = (function(){
 	
 	'use strict';
 	
-	var
+	var 
+	
 		logObject =  function (instance) {
-			let key, properties = [];
-			for (key in instance) {
-				if (instance.hasOwnProperty(key)) {
-					properties.push(instance);
-				}
-			}
-			console.log('inherito object: ', instance);
+			console.dir(instance);
 		},
 		
 		renderObject =  function (context, obj) {
@@ -21,10 +16,11 @@ var inHerito = (function(){
 			let instance = Object.create(this);
 				
 			options.map(function(currentValue, index){
-				instance[index] = currentValue;
+				instance = currentValue;				
 			});
 			
-			logObject(instance);
+			instance['debug'] ? logObject(instance) : false;
+
 			return instance;
 		};
 	
@@ -36,4 +32,3 @@ var inHerito = (function(){
 	
 })();
 
-var artist = inHerito.create({kind: 'Musicisian', instrument: 'Guitar', gender: 'female!'});

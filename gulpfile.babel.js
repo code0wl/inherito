@@ -8,9 +8,9 @@ gulp.task('js', function () {
     return gulp.src('src/*.js')
         .pipe(sourcemaps.init())
         .pipe(babel())
-        .pipe(concat('bundle.js'))
+        .pipe(concat('inherito.min.js'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('./dist'));
 });
 
 // create a task that ensures the `js` task is complete before

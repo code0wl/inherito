@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<script src="bundle.js"></script>
-</body>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<script src="inherito.min.js"></script>
+		
+		<script>
+			/** 
+			 * simple in file script to demostrate
+			 * */ 
+			
+			// Create your own constructor by turning it into an inHerito Object
+			var Driver = inHerito.create();
+			
+			// first option is true to log the object in your console
+			// Pass any properties you want
+			var Lisa = Driver.create({
+				car: 'Tesla',
+				experience: 4,
+				gender: 'female',
+				debug: true
+			});
+			
+			
+		</script>
+		
+		
+	</body>
 </html>
