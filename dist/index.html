@@ -20,25 +20,24 @@
 			 * */ 
 			
 			// Create your own constructor by turning it into an inHerito Object
-			var Driver = inHerito.create();
+			var Driver = inHerito.create({
+				inherit: true,
+				car: 'Tesla'
+			});
 			
 			// first option is true to log the object in your console
 			// Pass any properties you want
 			var Lisa = Driver.create({
-				car: "Tesla",
 				experience: 4,
+				inherit: true,
 				gender: "female",
 				view: {
 					imageUrl: "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2013/05/tesla-model-s-road-537x300.jpg",
 					template: new Image(),
 					context: ".shell",
 					parent: document.body
-				},
-				debug: true
+				}
 			});
-			
-			// Render object in view
-			Driver.render(document.body);
 			
 		</script>
 	</body>
