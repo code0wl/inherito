@@ -1,14 +1,14 @@
-var inHerito = (function(){
+const inHerito = (function(){
 	
 	'use strict';
 	
-	var 
+	let 
 	
 		/** 
 		 * @private 
 		 * Log object if object has debug set to true
 		*/
-		logObject = function(instance) {
+		logObject = (instance) => {
 			console.dir(instance);
 		},
 		
@@ -16,7 +16,7 @@ var inHerito = (function(){
 		 * @private 
 		 * Merge parent's props into instance if indicated
 		*/
-		inherit = function(instance, superProps) {
+		inherit = (instance, superProps) => {
 			return Object.assign(instance, superProps);
 		},
 		
@@ -24,7 +24,7 @@ var inHerito = (function(){
 		 * @private
 		 * Render object to DOM if specified in object creation
 		*/
-		render = function(instance) {
+		render = (instance) => {
 			if (instance.view) {
 				let view = instance.view;
 				view.template.src = view.imageUrl;
@@ -34,11 +34,11 @@ var inHerito = (function(){
 			}
 		},
 		
-		/**      
+		/**
 		 * @public
 		 * Create object instance and log or render if true
 		*/
-		createObject = function(...options) {
+		createObject = (...options) => {
 			let instance = Object.create(this),
 				superProps = this;
 						
@@ -57,7 +57,7 @@ var inHerito = (function(){
 	
 	// public api
 	return {
-		create : createObject,
+		create : createObject
 	};	
 	
 })();
