@@ -38,7 +38,7 @@ const inHerito = (function(){
 		 * @public
 		 * Create object instance and log or render if true
 		*/
-		createObject = (...options) => {
+		createObject = function(...options) {
 			let instance = Object.create(this),
 				superProps = this;
 						
