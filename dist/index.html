@@ -5,7 +5,12 @@
 		<title>Document</title>
 		<style>
 			img {
-				width: 400px;
+				width: 250px;
+				padding: 20px;
+				border: 1px solid rgba(0,0,0,.3);
+				margin: 20px;
+				display: inline-block;
+				vertical-align: top;
 			}
 		</style>
 	</head>
@@ -21,23 +26,64 @@
 			
 			// Create your own constructor by turning it into an inHerito Object
 			var Driver = inHerito.create({
-				inherit: true,
-				car: 'Tesla'
+				car: 'Tesla',
+				tierAge: 29,
+				gender: 'Female',
+				
+				// Pass property if object is going to be inherited
+				inherit: true
 			});
 			
 			// first option is true to log the object in your console
 			// Pass any properties you want
 			var Lisa = Driver.create({
+				name: 'Lisa',
 				experience: 4,
-				inherit: true,
-				gender: "female",
+				
+				// inherito view for demo, not for production use
 				view: {
 					imageUrl: "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2013/05/tesla-model-s-road-537x300.jpg",
 					template: new Image(),
 					context: ".shell",
 					parent: document.body
-				}
+				},
+				
+				// inherito parameters
+				debug: true
 			});
+			
+			var Cassie = Driver.create({
+				name: 'Cassie',
+				experience: 3,
+				
+				// inherito view for demo, not for production use
+				view: {
+					imageUrl: "http://pictures.topspeed.com/IMG/crop/201209/2010-tesla-roadster-6_800x0w.jpg",
+					template: new Image(),
+					context: ".shell",
+					parent: document.body
+				},
+				
+				// inherito parameters
+				debug: true
+			});
+			
+			var Nadi = Driver.create({
+				name: 'Nadi',
+				experience: 3,
+				
+				// inherito view for demo, not for production use
+				view: {
+					imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/22/Tesla_Roadster_Japanese_display.jpg",
+					template: new Image(),
+					context: ".shell",
+					parent: document.body
+				},
+				
+				// inherito parameters
+				debug: true
+			});
+			
 			
 		</script>
 	</body>
