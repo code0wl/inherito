@@ -31,7 +31,10 @@
 				gender: 'Female',
 				
 				// Pass property if object is going to be inherited
-				inherit: true
+				inherit: true,
+				indentify: function() {
+					console.log('my name is: ' , this.name );
+				}
 			});
 			
 			// first option is true to log the object in your console
@@ -49,7 +52,8 @@
 				},
 				
 				// inherito parameters
-				debug: true
+				debug: true,
+				inherit: true
 			});
 			
 			var Cassie = Driver.create({
@@ -65,7 +69,8 @@
 				},
 				
 				// inherito parameters
-				debug: true
+				debug: true,
+				inherit: true
 			});
 			
 			var Nadi = Driver.create({
@@ -81,10 +86,9 @@
 				},
 				
 				// inherito parameters
-				debug: true
+				debug: true,
+				inherit: true
 			});
-			
-			
 		</script>
 	</body>
 </html>
