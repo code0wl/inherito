@@ -9,6 +9,7 @@ const inHerito = (function(){
 		 * Log object if object has debug set to true
 		*/
 		logObject = (instance) => {
+			Object.defineProperty(instance, 'debug', {writable: false, enumerable: false});
 			console.dir(instance);
 		},
 		
@@ -30,7 +31,7 @@ const inHerito = (function(){
 				view.template.src = view.imageUrl;
 				view.parent.querySelector(view.context).appendChild(view.template);
 			} else {
-				return false;
+				console.error('instance does not have a view');
 			}
 		},
 		
