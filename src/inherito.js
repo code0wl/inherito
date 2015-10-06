@@ -18,12 +18,14 @@ const inHerito = (function(){
 		 * Merge parent's props into instance if indicated
 		*/
 		inherit = (instance, superProps) => {
-			return Object.assign(instance, superProps);
+			Object.defineProperty(instance, 'inherit', {writable: false, enumerable: false});
+			return Object.setPrototypeOf(instance, superProps);
 		},
 		
 		/** 
 		 * @private
 		 * Render object to DOM if specified in object creation
+		 * Prototype, do not use for production yet
 		*/
 		render = (instance) => {
 			if (instance.view) {
