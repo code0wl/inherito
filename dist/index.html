@@ -31,7 +31,10 @@
 				identify: function identify() {
 					console.log('my name is: ' , this.name);
 				},
-				level: 'expert'				
+				level: 'expert',
+				someOther: function someOther(){
+					console.log('test');
+				}
 			});
 			
 			// first option is true to log the object in your console
@@ -52,17 +55,16 @@
 				debug: true,
 				
 				// it will only inherit the title and identify methods as it's own
-				inherit: ['title', 'identify']
+				inherit: ['identify']
 			});
 			
+			
+			// normal inheritance
 			var Vannie = Driver.create({
 				name: 'Vannie',
 				
 				// inherito parameters
-				debug: true,
-				
-				// object will inherit everything from it's parent
-				inherit: true
+				debug: true
 			})
 		</script>
 	</body>

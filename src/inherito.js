@@ -10,22 +10,50 @@ const inHerito = (function(){
 		*/
 		logObject = function (instance) {
 			Object.defineProperty(instance.props, 'debug', {writable: false, enumerable: false});
-			console.info(instance.props);
+			console.dir(instance);
 		},
 		
 		/** 
 		 * @private 
-		 * Merge parent's props into instance if indicated
+		 * Merge parent's props into instance if indicated otherwise inherit all by default in JS manner
 		*/
 		inherit = (instance, superProps) => {
-			// Internal calls are inaccessible 
+			// Internal calls are inaccessible
 			Object.defineProperty(instance.props, 'inherit', {writable: false, enumerable: false});
-			if (instance.props.inherit === true) {
-				return Object.assign(instance.props, superProps.props);	
+			let mixins = instance.props.inherit;
+			
+			if (mixins.length > 1) { 
+				
+				//remove later
+				if (typeof instance === 'number' || typeof superProps.props === 'boolean') {
+					throw new TypeError('second argument to Object.appendChain must be an object or a string');
+				}
+
+				// which values are set here again?
+				var oNewProto = instance,
+					oReturn = o2nd = oLast = oChain instanceof this ? oChain : new oChain.constructor(oChain);
+
+				for (var o1st = this.getPrototypeOf(o2nd);
+					o1st !== Object.prototype && o1st !== Function.prototype;
+					o1st = this.getPrototypeOf(o2nd) ) {
+					o2nd = o1st;
+				}
+
+				if (oProto.constructor === String) {
+					oNewProto = Function.prototype;
+					oReturn = Function.apply(null, Array.prototype.slice.call(arguments, 1));
+					this.setPrototypeOf(oReturn, oLast);
+				}
+
+				this.setPrototypeOf(o2nd, oNewProto);
+				return oReturn;
+					
+				
 			} else {
-				let mixins = instance.props.inherit;
+				// just assign that one prop
+				let protoObject;
 				mixins.map((currentValue) => {
-					return instance.props[currentValue] = superProps.props[currentValue];
+					protoObject = Object.setPrototypeOf(instance, superProps.props[currentValue]);	
 				});
 			}
 		},
@@ -49,7 +77,7 @@ const inHerito = (function(){
 		 * @public
 		 * Create object instance and log or render if true
 		*/
-		createObject = function(...options) {
+		createObject = function createObject(...options) {
 			let instance = Object.create(this),
 				superProps = this;
 						
@@ -60,7 +88,7 @@ const inHerito = (function(){
 			
 			// options if provided
 			instance.props['view'] ? render(instance) : false;
-			instance.props['inherit'] ? inherit(instance, superProps) : false;
+			Array.isArray(instance.props['inherit']) ? inherit(instance, superProps): false;
 			instance.props['debug'] ? logObject(instance) : false;
 
 			return instance;

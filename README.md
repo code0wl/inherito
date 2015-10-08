@@ -1,6 +1,6 @@
-#inHerito ( A fun experiment )
+#inHerito ( A fun experiment in development )
 inHerito is a composable factory that allows you create the objects you want with ease and with the correct inheritance. It allows you to use properties and function methods from other objects without overusing and overinheriting. Every object that is created gets it's own logging information if option is set to true and allows you to keep a mindful eye on your objects. This is my take on solving the original OOP problem of overinheriting.
-Now you have OLOO (Objects Linked to Other Objects) and inherit only if you explicitely say so. 
+Now you have OLOO (Objects Linked to Other Objects) and inherit only if you say so. 
 
 Do you need this design pattern? No!
 
@@ -21,16 +21,19 @@ It's not an Animal anymore but shares a lot with dog.
 	Animal // And Followed by animal properties (ex blood, heart, etc.)
 	Animal.k9.dog // And Followed by dog properties (bark, bite, age, etc.)
 	
-My proposed solution is inherit or mixin the functions or static props you need. This keeps your objects clean and as reusable as possible.
+My proposed solution is inherit or mixin the functions or static props you need. This keeps your objects clean and as reusable as possible. And as a complete extra benefit: You shall be more semantically correct.
+Allow me to illustrate (use your imagination :D)
 
 	let robotDog = dog.create({
 		inherit: [bite, bark],
 		material: metal
 	});
 
+	Is it a dog? true
+	Is it a robot? true 
 
 ###How to use
-This script has no depencies except for running it in atleast an ES5 capable environment. Can be used for Node or Window environment if using the render feature or not. You may use es15 becuase of babel integration. 
+This tool has no depencies except for running it in atleast an ES5 capable environment. Can be used for Node or Window environment if using the render feature or not. You may use es15 becuase of babel integration. 
 A more fleshed out documentaiton will follow as I keep building up features. For now check the example files.
 
 Ensure that you have gulp-cli installed globally by 
