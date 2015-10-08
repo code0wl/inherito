@@ -5,6 +5,7 @@ Now you have OLOO (Objects Linked to Other Objects) and inherit only if you expl
 Do you need this design pattern? No!
 
 Would it be useful for bootstrapping a new application? Hell yes!
+To set the tone and get the correct mindset. [watch this](https://www.youtube.com/watch?t=159&v=8pTEmbeENF4)
 
 Never be affraid again to have more than one level deep of inherited object inheritance tree. In OOP we usually create newer objects for the sake of inheritance and not for the sake of
 semantical correctness. 
