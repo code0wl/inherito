@@ -8,9 +8,9 @@ const inHerito = (function(){
 		 * @private 
 		 * Log object if object has debug set to true
 		*/
-		logObject = (instance) => {
-			Object.defineProperty(instance, 'debug', {writable: false, enumerable: false});
-			console.dir(instance);
+		logObject = function (instance) {
+			Object.defineProperty(instance.props, 'debug', {writable: false, enumerable: false});
+			console.dir(instance.props);
 		},
 		
 		/** 
@@ -18,8 +18,16 @@ const inHerito = (function(){
 		 * Merge parent's props into instance if indicated
 		*/
 		inherit = (instance, superProps) => {
-			Object.defineProperty(instance, 'inherit', {writable: false, enumerable: false});
-			return Object.setPrototypeOf(instance, superProps);
+			// Internal calls are inaccessible 
+			Object.defineProperty(instance.props, 'inherit', {writable: false, enumerable: false});
+			if (instance.props.inherit === true) {
+				return Object.assign(instance.props, superProps.props);	
+			} else {
+				let mixins = instance.props.inherit;
+				mixins.map((currentValue) => {
+					return instance.props[currentValue] = superProps.props[currentValue];
+				});
+			}
 		},
 		
 		/** 
@@ -28,8 +36,8 @@ const inHerito = (function(){
 		 * Prototype, do not use for production yet
 		*/
 		render = (instance) => {
-			if (instance.view) {
-				let view = instance.view;
+			if (instance.props.view) {
+				let view = instance.props.view;
 				view.template.src = view.imageUrl;
 				view.parent.querySelector(view.context).appendChild(view.template);
 			} else {
@@ -47,13 +55,13 @@ const inHerito = (function(){
 						
 			// set only the new properties
 			options.map((currentValue) => {
-				instance = currentValue;
+				instance.props = currentValue;
 			});
 			
 			// options if provided
-			instance['view'] ? render(instance) : false;
-			instance['inherit'] ? inherit(instance, superProps) : false;
-			instance['debug'] ? logObject(instance) : false;
+			instance.props['view'] ? render(instance) : false;
+			instance.props['inherit'] ? inherit(instance, superProps) : false;
+			instance.props['debug'] ? logObject(instance) : false;
 
 			return instance;
 		};
