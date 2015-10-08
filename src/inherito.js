@@ -10,7 +10,7 @@ const inHerito = (function(){
 		*/
 		logObject = function (instance) {
 			Object.defineProperty(instance.props, 'debug', {writable: false, enumerable: false});
-			console.dir(instance.props);
+			console.info(instance.props);
 		},
 		
 		/** 

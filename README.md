@@ -6,11 +6,30 @@ Do you need this design pattern? No!
 
 Would it be useful for bootstrapping a new application? Hell yes!
 
-Never be affraid again to have more than one level deep of inherited object inheritance tree
+Never be affraid again to have more than one level deep of inherited object inheritance tree. In OOP we usually create newer objects for the sake of inheritance and not for the sake of
+semantical correctness. 
+
+- Ex: Let's consider a dog. A good and sane OOP developer would most likely create an abstract tree that resides the dog animal this way
+	
+	Animal // And Followed by animal properties (ex blood, heart, etc.)
+	Animal.k9.dog // And Followed by dog properties (bark, bite, age, how many legs, etc.)
+	
+But let's say in that same program we want to make a robot dog, which semantically inherits a of the dog's properties to begin with. But we know semantically that robot dog belongs basically from two classes.
+It's not an Animal anymore but shares a lot with dog. 	
+
+	Animal // And Followed by animal properties (ex blood, heart, etc.)
+	Animal.k9.dog // And Followed by dog properties (bark, bite, age, etc.)
+	
+My proposed solution is inherit or mixin the functions or static props you need. This keeps your objects clean and as reusable as possible.
+
+	let robotDog = dog.create({
+		inherit: [bite, bark],
+		material: metal
+	});
 
 
 ###How to use
-This script has no depencies except for running it in atleast a ES5 capable environment. Can be used for Node or Window environment if using the render feature or not. You may use es15 becuase of babel integration. 
+This script has no depencies except for running it in atleast an ES5 capable environment. Can be used for Node or Window environment if using the render feature or not. You may use es15 becuase of babel integration. 
 A more fleshed out documentaiton will follow as I keep building up features. For now check the example files.
 
 Ensure that you have gulp-cli installed globally by 
