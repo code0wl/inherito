@@ -1,0 +1,24 @@
+
+
+  true
+[2K[0G    1) should be true
+
+
+  0 passing (4ms)
+  1 failing
+
+  1) true should be true:
+     TypeError: 'undefined' is not an object (evaluating 'true.should.equal')
+      at file:///Users/oz/Google%20Drive/github/mine/inherito/test/client/inherito.test.js:3
+      at callFn (file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:4202)
+      at file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:4195
+      at file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:4661
+      at file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:4790
+      at next (file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:4581)
+      at file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:4591
+      at next (file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:4523)
+      at file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:4559
+      at timeslice (file:///Users/oz/Google%20Drive/github/mine/inherito/node_modules/mocha/mocha.js:12326)
+
+
+
