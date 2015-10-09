@@ -19,15 +19,16 @@ const inHerito = (function(){
 		*/
 		inherit = (instance, superProps) => {
 			// Internal calls are inaccessible
+			Object.defineProperty(instance, 'inherit', {writable: false, enumerable: false});
+			
 			let mixins = instance.inherit,
 			inheritedObject = {};
 			
-			// just assign that one prop
+			// Assign props as objects
 			mixins.map((currentValue) => {
 				inheritedObject[currentValue] = superProps[currentValue];
 				return Object.setPrototypeOf(instance, inheritedObject);	
 			});
-			Object.defineProperty(instance, 'inherit', {writable: false, enumerable: false});
 		},
 		
 		/** 

@@ -3,11 +3,13 @@ var sourcemaps = require('gulp-sourcemaps');
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var browserSync = require('browser-sync');
+var uglify = require('gulp-uglify');
 
 gulp.task('js', function () {
     return gulp.src('src/*.js')
         .pipe(sourcemaps.init())
         .pipe(babel())
+        .pipe(uglify())
         .pipe(concat('inherito.min.js'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dist'));
