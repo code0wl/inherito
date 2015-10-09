@@ -51,3 +51,5 @@ gulp.task('serve', ['js'], function () {
     // all browsers reload after tasks are complete.
     gulp.watch("src/*.js", ['js-watch']);
 });
+
+gulp.task('default', ['test', 'js'])
