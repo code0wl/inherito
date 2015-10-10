@@ -50,7 +50,7 @@ const inHerito = (function(){
 		 * @public
 		 * Create object instance and log or render if true
 		*/
-		createObject = function createObject(...options) {
+		create = function create(...options) {
 			let instance = Object.create(this),
 				superProps = this;
 						
@@ -69,7 +69,7 @@ const inHerito = (function(){
 	
 	// public api
 	return {
-		create : createObject
+		create : create
 	};	
 	
 })();

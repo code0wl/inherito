@@ -1,36 +1,29 @@
+/* global it */
 /* global describe */
+var assert = require('assert');
+var expect = require('chai').expect;
+var inHerito = require('../../dist/inherito.min');
 
-var assert = require("assert");
+describe('hooks', function() {
 
-describe('Array', function() {
-  
-  describe('#indexOf()', function () {
-    it('should return -1 when the value is not present', function () {
-      assert.equal(-1, [1,2,3].indexOf(5));
-      assert.equal(-1, [1,2,3].indexOf(0));
-    });
+  before('some description', function() {
+    var Driver = inHerito.create();
+    console.log('What inherito returns when called: ', Driver);
   });
-  
-});
 
-// describe('Inherito', () => {
-//    describe('create', () => {
-//      // Process how object is being created and placed inside other object as prop
-//      // Check if object is not iterable
-//      // Check if object is hidden
-//      assert.Object.equal(Object.isExtensible(this));
-     
-//    });
-   
-//    describe('inherit', () => {
-//      // Check wether give arguments are being passed correctly to the object
-//      // is prototype of parent object and is inheriting just the given objects
+  describe('inHerito', function() {
+    
+    describe('constructor', function() {
+      it('should return a new object with the correct semantic inheritance', function() {
+        expect(inHerito).to.be.a('object');
+      });
+    });
+    
+    describe('create method', function() {
+      it('Should be a method', function() {
+        // expect(Driver).to.be.a('object');
+      });
+    });
       
-//    });
-   
-//    // in progress do not test yet
-//    describe('view', () => {
-//      // Combine react core and react-dom for views
-     
-//    });
-// });
+  });
+});
