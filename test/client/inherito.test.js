@@ -7,8 +7,7 @@ var inHerito = require('../../dist/inherito.min');
 describe('hooks', function() {
 
   before('some description', function() {
-    var Driver = inHerito.create();
-    console.log('What inherito returns when called: ', Driver);
+    console.log('What inherito returns when called: ', inHerito);
   });
 
   describe('inHerito', function() {
