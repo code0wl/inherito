@@ -31,23 +31,17 @@ gulp.task('test',function () {
         .pipe(eslint.failAfterError());
 });
 
-// create a task that ensures the `js` task is complete before
-// reloading browsers
+gulp.task('default', ['js', 'test']);
+
 gulp.task('js-watch', ['js'], browserSync.reload);
 
-// use default task to launch Browsersync and watch JS files
 gulp.task('serve', ['js'], function () {
 
-    // Serve files from the root of this project
     browserSync({
         server: {
             baseDir: "./dist"
         }
     });
 
-    // add browserSync.reload to the tasks array to make
-    // all browsers reload after tasks are complete.
     gulp.watch("src/*.js", ['js-watch']);
 });
-
-gulp.task('default', ['js', 'test']);
