@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-  - "4.1"
-  - "4.0"
- 
+  - '0.10'
+  - '0.12'
+  - 'io.js'
   
 before_script:
   - npm install -g gulp-cli
-  - npm install gulp
+  - npm install -g gulp
 
 script: gulp
