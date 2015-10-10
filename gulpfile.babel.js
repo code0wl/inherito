@@ -1,11 +1,11 @@
-const gulp = require('gulp');
-const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const browserSync = require('browser-sync');
-const uglify = require('gulp-uglify');
-const mocha = require('gulp-mocha');
-const eslint = require('gulp-eslint');
+import gulp from 'gulp';
+import sourcemaps from 'gulp-sourcemaps';
+import babel from 'gulp-babel';
+import concat from 'gulp-concat';
+import browserSync from 'browser-sync';
+import uglify from 'gulp-uglify';
+import mocha from 'gulp-mocha';
+import eslint from 'gulp-eslint';
 
 gulp.task('js', () => {
     return gulp.src('src/*.js')
@@ -17,7 +17,7 @@ gulp.task('js', () => {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('test',function () {
+gulp.task('test', () => {
   return gulp
         .src(['test/**/*.js'])
         .pipe(mocha({
