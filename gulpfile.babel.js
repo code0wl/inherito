@@ -1,10 +1,11 @@
-var gulp = require('gulp');
-var sourcemaps = require('gulp-sourcemaps');
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
-var browserSync = require('browser-sync');
-var uglify = require('gulp-uglify');
-var mocha = require('gulp-mocha');
+const gulp = require('gulp');
+const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
+const browserSync = require('browser-sync');
+const uglify = require('gulp-uglify');
+const mocha = require('gulp-mocha');
+const eslint = require('gulp-eslint');
 
 gulp.task('js', () => {
     return gulp.src('src/*.js')
@@ -23,14 +24,11 @@ gulp.task('test',function () {
             compilers: {
                 js: babel
             },
-            reporter: 'nyan',
+            reporter: 'nyan'
         }))
-        .once('error', function () {
-            process.exit(1);
-        })
-        .once('end', function () {
-            process.exit();
-        });
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 // create a task that ensures the `js` task is complete before
@@ -52,4 +50,4 @@ gulp.task('serve', ['js'], function () {
     gulp.watch("src/*.js", ['js-watch']);
 });
 
-gulp.task('default', ['test'])
+gulp.task('default', ['js', 'test']);

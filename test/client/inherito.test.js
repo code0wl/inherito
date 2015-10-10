@@ -1,3 +1,5 @@
+/* global describe */
+
 var assert = require("assert");
 
 describe('Array', function() {
@@ -11,24 +13,24 @@ describe('Array', function() {
   
 });
 
-describe('Inherito', () => {
-   describe('create', () => {
-     // Process how object is being created and placed inside other object as prop
-     // Check if object is not iterable
-     // Check if object is hidden
-     assert.Object.equal(Object.isExtensible(this));
+// describe('Inherito', () => {
+//    describe('create', () => {
+//      // Process how object is being created and placed inside other object as prop
+//      // Check if object is not iterable
+//      // Check if object is hidden
+//      assert.Object.equal(Object.isExtensible(this));
      
-   });
+//    });
    
-   describe('inherit', () => {
-     // Check wether give arguments are being passed correctly to the object
-     // is prototype of parent object and is inheriting just the given objects
+//    describe('inherit', () => {
+//      // Check wether give arguments are being passed correctly to the object
+//      // is prototype of parent object and is inheriting just the given objects
       
-   });
+//    });
    
-   // in progress do not test yet
-   describe('view', () => {
-     // Combine react core and react-dom for views
+//    // in progress do not test yet
+//    describe('view', () => {
+//      // Combine react core and react-dom for views
      
-   });
-});
+//    });
+// });
