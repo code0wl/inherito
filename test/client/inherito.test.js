@@ -1,28 +1,74 @@
 /* global it */
 /* global describe */
-var assert = require('assert');
-var expect = require('chai').expect;
-var inHerito = require('../../dist/inherito.min');
+var assert = require('assert'),
+    expect = require('chai').expect,
+    inHerito = require('../../src/inherito');
 
-describe('hooks', function() {
-
-  before('some description', function() {
-    console.log('What inherito returns when called: ', inHerito);
+describe('inHerito', function() {  
+  it('should be an object', function() {
+    expect(inHerito).to.be.a('object');
   });
+});
 
-  describe('inHerito', function() {
-    
-    describe('constructor', function() {
-      it('should return a new object with the correct semantic inheritance', function() {
-        expect(inHerito).to.be.a('object');
-      });
+describe('create', function() {
+  it('can set property on new object', function() {
+    var Driver = inHerito.create({
+      title: 'Tesla'
+    });
+    expect(Driver.title).to.equal('Tesla');
+  }); 
+});
+
+describe('inheritance', function() {
+  it('should inherit from parent', function() {
+    var Driver = inHerito.create({
+      title: 'Tesla'
+    });
+    expect(Driver).to.have.property('create');
+  });
+  
+  it('should be able to overwrite it\'s inherited object', function() {
+    var Driver = inHerito.create({
+      age: 15,
+      title: 'Tesla',
+      gender: 'Male'    
     });
     
-    describe('create method', function() {
-      it('Should be a method', function() {
-        // expect(Driver).to.be.a('object');
-      });
+    var Lucy = Driver.create({
+      gender: 'Female'
     });
-      
+    
+    expect(Lucy.gender).to.equal('Female');
   });
+   
+  it('should just take mixins from parent', function() {
+    var Driver = inHerito.create({
+      age: 15,
+      title: 'Tesla',
+      gender: 'Male'
+    });
+    
+    var Lucy = Driver.create({
+      gender: 'Female',
+      inherit: ['title']
+    });
+    
+    expect(Lucy.title).to.equal('Tesla');
+  });
+  
+  it('should just take mixins from parent', function() {
+    var Driver = inHerito.create({
+      age: 15,
+      title: 'Tesla',
+      gender: 'Male'
+    });
+    
+    var Lucy = Driver.create({
+      gender: 'Female',
+      inherit: ['title']
+    });
+    
+    expect(Lucy.age).to.equal(undefined);
+  }); 
+     
 });
