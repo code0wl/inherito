@@ -8,7 +8,13 @@
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1"
   },
-  "keywords": "['inherito, easy object inheritance, simple mixins library, oloo pattern, objects linked to other objects']",
+  "keywords": [
+    "inherit",
+    "oloo pattern",
+    "mixins",
+    "semantic objects",
+    "composable objects"
+  ],
   "devDependencies": {
     "babel-core": "^5.8.25",
     "browser-sync": "^2.9.8",
