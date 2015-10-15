@@ -7,6 +7,7 @@ import uglify from 'gulp-uglify';
 import mocha from 'gulp-mocha';
 import eslint from 'gulp-eslint';
 import taskListing from 'gulp-task-listing';
+import inject from 'gulp-inject';
 
 gulp.task('help', taskListing);
 
