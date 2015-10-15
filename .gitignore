@@ -3,3 +3,4 @@ node_modules
 .log
 .vscode
 npm.debug.log
+test.log
