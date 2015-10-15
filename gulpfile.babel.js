@@ -6,6 +6,9 @@ import browserSync from 'browser-sync';
 import uglify from 'gulp-uglify';
 import mocha from 'gulp-mocha';
 import eslint from 'gulp-eslint';
+import taskListing from 'gulp-task-listing';
+
+gulp.task('help', taskListing);
 
 gulp.task('js', () => {
     return gulp.src('src/*.js')
