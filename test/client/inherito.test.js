@@ -54,21 +54,5 @@ describe('inheritance', function() {
     });
     
     expect(Lucy.title).to.equal('Tesla');
-  });
-  
-  it('should just take mixins from parent', function() {
-    var Driver = inHerito.create({
-      age: 15,
-      title: 'Tesla',
-      gender: 'Male'
-    });
-    
-    var Lucy = Driver.create({
-      gender: 'Female',
-      inherit: ['title']
-    });
-    
-    expect(Lucy.age).to.equal(undefined);
-  }); 
-     
+  });     
 });
