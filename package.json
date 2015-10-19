@@ -1,6 +1,6 @@
 {
   "name": "inherito",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "In a world where functional programming is taking over. There is still something magical and beautiful about the inheritance design patterns. In JavaScript that translate to the OLOO pattern to be more specific. But Some refer to it as the prototypal design pattern (Not to be confused with the clasical design pattern).",
   "main": "index.js",
   "dependencies": {
