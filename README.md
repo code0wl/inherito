@@ -14,13 +14,13 @@ semantical correctness.
 - Ex: Let's consider a dog. A good and sane OOP developer would most likely create an abstract tree that resides the dog animal this way
 	
 	Animal // And Followed by animal properties (ex blood, heart, etc.)
-	Animal.k9.dog // And Followed by dog properties (bark, bite, age, how many legs, etc.)
+	Animal.dog // And Followed by dog properties (bark, bite, age, how many legs, etc.)
 	
 But let's say in that same program we want to make a robot dog, which semantically inherits a of the dog's properties to begin with. But we know semantically that robot dog belongs basically from two classes.
 It's not an Animal anymore but shares a lot with dog. 	
 
 	Animal // And Followed by animal properties (ex blood, heart, etc.)
-	Animal.k9.dog // And Followed by dog properties (bark, bite, age, etc.)
+	Animal.dog // And Followed by dog properties (bark, bite, age, etc.)
 	
 My proposed solution is inherit or mixin the functions or static props you need. This keeps your objects clean and as reusable as possible. And as a complete extra benefit: You shall be more semantically correct.
 Allow me to illustrate (use your imagination :D)
