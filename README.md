@@ -48,3 +48,7 @@ Once that is done, just install like any other project using node & npm
 
 In development
 - Proper documentation
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/code0wl/inherito/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
