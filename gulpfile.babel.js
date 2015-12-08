@@ -35,11 +35,17 @@ gulp.task('test', () => {
         .pipe(eslint.failAfterError());
 });
 
+gulp.task('generate-example', () => {
+    return gulp
+        .src('./example/index.html')
+        .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('default', ['js', 'test']);
 
 gulp.task('js-watch', ['js'], browserSync.reload);
 
-gulp.task('serve', ['js'], function () {
+gulp.task('serve', ['js', 'generate-example'],  () => {
 
     browserSync({
         server: {

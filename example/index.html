@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="inherito.min.js"></script>
+</head>
+<body>
+
+
+<script>
+    /**
+     * simple in file script to demostrate
+     * */
+
+    // Create your own constructor by turning it into an inHerito Object
+    // Should be a clean object with simple props to inherit or default from
+    var Driver = inHerito.create({
+        title: "Woman\'s league",
+        identify: function identify() {
+            console.log('my name is: ', this.name);
+        },
+        level: 'expert',
+        someOther: function someOther() {
+            console.log('test');
+        }
+    });
+
+    // first option is true to log the object in your console
+    // Pass any properties you want
+    var Lisa = Driver.create({
+        name: 'Lisa',
+        experience: 4,
+
+        // inherito view for demo, not for production use
+        view: {
+            imageUrl: "http://assets.inhabitat.com/wp-content/blogs.dir/1/files/2013/05/tesla-model-s-road-537x300.jpg",
+            template: new Image(),
+            context: ".application-shell",
+            parent: document.body
+        },
+
+        // inherito parameters
+        debug: true,
+
+        // it will only inherit the title and identify methods as it's own
+        inherit: ['identify', 'title']
+    });
+
+
+    // normal inheritance
+    var Vannie = Driver.create({
+        name: 'Vannie',
+
+        // inherito parameters
+        debug: true
+    })
+</script>
+
+</body>
+</html>
