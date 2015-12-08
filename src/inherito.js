@@ -5,8 +5,9 @@ const inHerito = (function () {
     const
 
         /**
-         * @private
+         * @function logObject
          * Log object if object has debug set to true
+         * @private
          */
         logObject = function (instance) {
             Object.defineProperty(instance, 'debug', {writable: false, enumerable: false});
@@ -14,17 +15,16 @@ const inHerito = (function () {
         },
 
         /**
-         * @private
          * Merge parent's props into instance if indicated otherwise inherit all by default in JS manner
+         * @function inherit
+         * @private
          */
         inherit = (instance, superProps) => {
-            // Internal calls are inaccessible
             Object.defineProperty(instance, 'inherit', {writable: false, enumerable: false});
 
             let mixins = instance.inherit,
                 inheritedObject = {};
 
-            // Assign props as objects
             mixins.map((currentValue) => {
                 inheritedObject[currentValue] = superProps[currentValue];
                 return Object.setPrototypeOf(instance, inheritedObject);
@@ -32,9 +32,10 @@ const inHerito = (function () {
         },
 
         /**
-         * @private
          * Render object to DOM if specified in object creation
-         * Prototype, do not use for production yet
+         * @function render
+         * @todo: Prototype, do not use for production yet Placing riot.js here
+         * @private
          */
         render = ({view}) => {
             if (view) {
@@ -46,19 +47,18 @@ const inHerito = (function () {
         },
 
         /**
-         * @public
+         * @function create
          * Create object instance and log or render if true
+         * @public
          */
         create = function create(...options) {
             let instance = Object.create(this),
                 superProps = this;
 
-            // set only the new properties
             options.map((currentValue) => {
                 Object.assign(instance, currentValue);
             });
 
-            // options if provided
             instance['view'] ? render(instance) : false;
             Array.isArray(instance['inherit']) ? inherit(instance, superProps) : false;
             instance['debug'] ? logObject(instance) : false;
@@ -66,13 +66,10 @@ const inHerito = (function () {
             return instance;
         };
 
-    // public api
     return {
         create: create
     };
 
 })();
 
-module.exports = {
-    create: inHerito.create
-}
+module.exports = inHerito;

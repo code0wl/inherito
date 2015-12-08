@@ -16,6 +16,9 @@ gulp.task('js', () => {
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(uglify())
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError())
         .pipe(concat('inherito.min.js'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dist'));
@@ -29,10 +32,7 @@ gulp.task('test', () => {
                 js: babel
             },
             reporter: 'nyan'
-        }))
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+        }));
 });
 
 gulp.task('generate-example', () => {
