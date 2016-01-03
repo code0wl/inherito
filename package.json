@@ -3,11 +3,6 @@
   "version": "1.0.4",
   "description": "In a world where functional programming is taking over. There is still something magical and beautiful about the inheritance design patterns. In JavaScript that translate to the OLOO pattern to be more specific. But Some refer to it as the prototypal design pattern (Not to be confused with the clasical design pattern).",
   "main": "index.js",
-  "dependencies": {
-    "babel": "^5.8.23",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1"
-  },
   "keywords": [
     "inherit",
     "oloo pattern",
@@ -16,22 +11,27 @@
     "composable objects"
   ],
   "devDependencies": {
-    "babel": "^5.8.34",
-    "babel-core": "^5.8.25",
-    "browser-sync": "^2.9.8",
-    "chai": "^3.3.0",
-    "eslint": "^1.6.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-eslint": "^1.0.0",
-    "gulp-inject": "^3.0.0",
-    "gulp-mocha": "^2.1.3",
-    "gulp-mocha-phantomjs": "^0.10.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-task-listing": "^1.0.1",
-    "gulp-template-html": "0.0.2",
-    "gulp-uglify": "^1.4.1",
-    "mocha": "^2.3.3",
-    "should": "^7.1.0"
+    "babel": "^6.3.26",
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-preset-es2015": "*",
+    "browser-sync": "*",
+    "chai": "*",
+    "defs": "*",
+    "eslint": "*",
+    "gulp-babel": "^6.1.1",
+    "gulp-concat": "*",
+    "gulp-eslint": "*",
+    "gulp-inject": "*",
+    "gulp-mocha": "*",
+    "gulp-mocha-phantomjs": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-task-listing": "*",
+    "gulp-template-html": "*",
+    "gulp-uglify": "*",
+    "mocha": "*",
+    "regenerator": "*",
+    "should": "*"
   },
   "scripts": {
     "test": "mocha --compilers js:babel/register"

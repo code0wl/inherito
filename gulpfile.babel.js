@@ -13,19 +13,19 @@ gulp.task('help', taskListing);
 
 gulp.task('js', () => {
     return gulp.src('src/*.js')
-        .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(uglify())
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError())
         .pipe(concat('inherito.min.js'))
-        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('test', () => {
-  return gulp
+    return gulp
         .src(['test/**/*.js'])
         .pipe(mocha({
             compilers: {
@@ -45,7 +45,7 @@ gulp.task('default', ['js', 'test']);
 
 gulp.task('js-watch', ['js'], browserSync.reload);
 
-gulp.task('serve', ['js', 'generate-example'],  () => {
+gulp.task('serve', ['js', 'generate-example'], () => {
 
     browserSync({
         server: {
