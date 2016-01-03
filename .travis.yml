@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-  - '0.10'
-  - '0.12'
-  - 'io.js'
+  - '4.2.2'
+  - '5.3.3'
   
 before_script:
   - npm install -g gulp
