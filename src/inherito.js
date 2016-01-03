@@ -5,11 +5,12 @@ const inHerito = (function () {
     const
 
         /**
-         * @function logObject
          * Log object if object has debug set to true
+         * @function logObject
+         * @parameter {object} instance
          * @private
          */
-        logObject = function (instance) {
+        logObject = (instance) => {
             Object.defineProperty(instance, 'debug', {writable: false, enumerable: false});
             console.dir(instance);
         },
@@ -17,6 +18,8 @@ const inHerito = (function () {
         /**
          * Merge parent's props into instance if indicated otherwise inherit all by default in JS manner
          * @function inherit
+         * @parameter {object} instance
+         * @parameter {object} superProps
          * @private
          */
         inherit = (instance, superProps) => {
@@ -34,6 +37,7 @@ const inHerito = (function () {
         /**
          * Render object to DOM if specified in object creation
          * @function render
+         * @parameter {object} view
          * @todo: Prototype, do not use for production yet Placing riot.js here
          * @private
          */
