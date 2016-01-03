@@ -51,8 +51,9 @@ const inHerito = (function () {
         },
 
         /**
-         * @function create
          * Create object instance and log or render if true
+         * @function create
+         * @parameter {object} options
          * @public
          */
         create = function create(...options) {
