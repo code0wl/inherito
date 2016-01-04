@@ -35,8 +35,7 @@ const inHerito = (function () {
         },
 
         generateUUID = () => {
-            let dateNow = new Date().getTime();
-            dateNow += window.performance.now();
+            let dateNow = new Date();
 
             let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
                 let randomness = (dateNow + Math.random()*16)%16 | 0;
@@ -59,7 +58,7 @@ const inHerito = (function () {
                 view.template.src = view.imageUrl;
                 view.parent.querySelector(view.context).appendChild(view.template);
             } else {
-                console.error('instance does not have a view');
+                console.log('instance does not have a view');
             }
         },
 
