@@ -34,6 +34,19 @@ const inHerito = (function () {
             });
         },
 
+        generateUUID = () => {
+            let dateNow = new Date().getTime();
+            dateNow += window.performance.now();
+
+            let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+                let randomness = (dateNow + Math.random()*16)%16 | 0;
+                dateNow = Math.floor(dateNow/16);
+                return (c=='x' ? randomness : (randomness&0x3|0x8)).toString(16);
+            });
+
+            return uuid;
+        },
+
         /**
          * Render object to DOM if specified in object creation
          * @function render
@@ -60,9 +73,11 @@ const inHerito = (function () {
             let instance = Object.create(this),
                 superProps = this;
 
-            options.map((currentValue) => {
-                Object.assign(instance, currentValue);
+            options.map((option) => {
+                Object.assign(instance, option);
             });
+
+            instance.id = generateUUID();
 
             instance['view'] ? render(instance) : false;
             Array.isArray(instance['inherit']) ? inherit(instance, superProps) : false;
