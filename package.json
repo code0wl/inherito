@@ -22,6 +22,7 @@
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",
     "gulp-concat": "*",
+    "gulp-contrib-copy": "^0.1.2",
     "gulp-eslint": "*",
     "gulp-inject": "*",
     "gulp-mocha": "*",

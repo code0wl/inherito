@@ -3,12 +3,25 @@
     <title>Mocha</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="inherito.min.js"></script>
 </head>
 <body>
 
-<div class="application-shell"></div>
+<div class="application-shell">
+    <example></example>
+</div>
+
+<!-- include inherito -->
+<script src="inherito.min.js"></script>
+
+<!-- include riot -->
+<script src="https://cdn.jsdelivr.net/riot/2.3.12/riot+compiler.min.js"></script>
+
+<!-- riot tag inclusion -->
+<script src="tags/example.tag" type="riot/tag"></script>
+
+<!-- inHerito init and instances -->
 <script>
+
     var Driver = inHerito.create({
         title: "Woman\'s league",
         identify: function identify() {
@@ -28,10 +41,11 @@
         inherit: ['identify', 'title']
     });
 
-    var Vannie = Driver.create({
-        name: 'Vannie',
-        debug: true
-    })
+</script>
+
+<!-- Mount riot component with inherito object -->
+<script>
+    riot.mount('example', Lisa);
 </script>
 
 </body>

@@ -8,6 +8,7 @@ import mocha from 'gulp-mocha';
 import eslint from 'gulp-eslint';
 import taskListing from 'gulp-task-listing';
 import inject from 'gulp-inject';
+import copy from 'gulp-contrib-copy';
 
 gulp.task('help', taskListing);
 
@@ -35,10 +36,10 @@ gulp.task('test', () => {
         }));
 });
 
-gulp.task('generate-example', () => {
-    return gulp
-        .src('./example/index.html')
-        .pipe(gulp.dest('./dist'));
+gulp.task('generate-example', function() {
+    gulp.src('example/**/*')
+        .pipe(copy())
+        .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('default', ['js', 'test']);

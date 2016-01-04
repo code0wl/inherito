@@ -12,7 +12,7 @@ const inHerito = (function () {
          */
         logObject = (instance) => {
             Object.defineProperty(instance, 'debug', {writable: false, enumerable: false});
-            console.dir(instance);
+            console.log(instance);
         },
 
         /**
@@ -35,13 +35,13 @@ const inHerito = (function () {
         },
 
         generateUUID = () => {
-            let dateNow = new Date();
-
-            let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-                let randomness = (dateNow + Math.random()*16)%16 | 0;
-                dateNow = Math.floor(dateNow/16);
-                return (c=='x' ? randomness : (randomness&0x3|0x8)).toString(16);
-            });
+            let
+                dateNow = new Date(),
+                uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+                    let randomness = (dateNow + Math.random() * 16) % 16 | 0;
+                    dateNow = Math.floor(dateNow / 16);
+                    return (c == 'x' ? randomness : (randomness & 0x3 | 0x8)).toString(16);
+                });
 
             return uuid;
         },
