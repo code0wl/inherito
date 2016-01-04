@@ -76,8 +76,7 @@ const inHerito = (function () {
                 Object.assign(instance, option);
             });
 
-            instance.id = generateUUID();
-
+            instance['id'] ? instance.id = instance.id : instance.id = generateUUID();
             instance['view'] ? render(instance) : false;
             Array.isArray(instance['inherit']) ? inherit(instance, superProps) : false;
             instance['debug'] ? logObject(instance) : false;
