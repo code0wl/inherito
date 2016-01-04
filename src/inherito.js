@@ -16,7 +16,7 @@ const inHerito = (function () {
         },
 
         /**
-         * Merge parent's props into instance if indicated otherwise inherit all by default in JS manner
+         * Get super
          * @function inherit
          * @parameter {object} instance
          * @parameter {object} superProps
@@ -47,22 +47,6 @@ const inHerito = (function () {
         },
 
         /**
-         * Render object to DOM if specified in object creation
-         * @function render
-         * @parameter {object} view
-         * @todo: Prototype, do not use for production yet Placing riot.js here
-         * @private
-         */
-        render = ({view}) => {
-            if (view) {
-                view.template.src = view.imageUrl;
-                view.parent.querySelector(view.context).appendChild(view.template);
-            } else {
-                console.log('instance does not have a view');
-            }
-        },
-
-        /**
          * Create object instance and log or render if true
          * @function create
          * @parameter {object} options
@@ -77,7 +61,6 @@ const inHerito = (function () {
             });
 
             instance['id'] ? instance.id = instance.id : instance.id = generateUUID();
-            instance['view'] ? render(instance) : false;
             Array.isArray(instance['inherit']) ? inherit(instance, superProps) : false;
             instance['debug'] ? logObject(instance) : false;
 
