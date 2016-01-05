@@ -9,11 +9,12 @@ import eslint from 'gulp-eslint';
 import taskListing from 'gulp-task-listing';
 import inject from 'gulp-inject';
 import copy from 'gulp-contrib-copy';
+import riot from 'gulp-riot';
 
 gulp.task('help', taskListing);
 
 gulp.task('js', () => {
-    return gulp.src('src/*.js')
+    return gulp.src('src/**/*.js')
         .pipe(babel({
             presets: ['es2015']
         }))
@@ -36,8 +37,14 @@ gulp.task('test', () => {
         }));
 });
 
+gulp.task('riot', ()=> {
+    gulp.src('example/**/*.tag')
+        .pipe(riot())
+        .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('generate-example', function() {
-    gulp.src('example/**/*')
+    gulp.src('example/*.html')
         .pipe(copy())
         .pipe(gulp.dest('dist/'));
 });
@@ -46,7 +53,7 @@ gulp.task('default', ['js', 'test']);
 
 gulp.task('js-watch', ['js'], browserSync.reload);
 
-gulp.task('serve', ['js', 'generate-example'], () => {
+gulp.task('serve', ['js', 'riot', 'generate-example'], () => {
 
     browserSync({
         server: {

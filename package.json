@@ -27,6 +27,7 @@
     "gulp-inject": "*",
     "gulp-mocha": "*",
     "gulp-mocha-phantomjs": "*",
+    "gulp-riot": "^0.4.3",
     "gulp-sourcemaps": "*",
     "gulp-task-listing": "*",
     "gulp-template-html": "*",
