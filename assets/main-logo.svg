@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="486" height="120" viewBox="0 0 486 120">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 108.333px;
+        filter: url(#filter);
+      }
+
+      .cls-1, .cls-2 {
+        text-anchor: end;
+        fill: #a2afbb;
+        font-family: Phosphate-Solid, Phosphate;
+      }
+
+      .cls-2 {
+        font-size: 58.333px;
+        filter: url(#filter-2);
+      }
+    </style>
+    <filter id="filter" x="9" y="30" width="453" height="76" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#721d92"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="435" y="10" width="41" height="41" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#721d92"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <text id="inHerito" class="cls-1" x="464.461" y="104.258"><tspan x="464.461">inHerito</tspan></text>
+  <text id="o" class="cls-2" x="477.461" y="50.258"><tspan x="477.461">o</tspan></text>
+</svg>
