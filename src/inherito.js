@@ -1,4 +1,4 @@
-const inHerito = (function () {
+let inHerito = (function () {
 
     'use strict';
 
@@ -11,7 +11,7 @@ const inHerito = (function () {
          * @private
          */
         logObject = (instance) => {
-            Object.defineProperty(instance, 'debug', {writable: false, enumerable: false});
+            Object.defineProperty(instance, 'debug', {writable: true, enumerable: false});
             console.log(instance);
         },
 
@@ -23,9 +23,9 @@ const inHerito = (function () {
          * @private
          */
         inherit = (instance, superProps) => {
-            Object.defineProperty(instance, 'inherit', {writable: false, enumerable: false});
+            Object.defineProperty(instance, 'implements', {writable: false, enumerable: false});
 
-            let mixins = instance.inherit,
+            let mixins = instance.implements,
                 inheritedObject = {};
 
             mixins.map((currentValue) => {
@@ -34,6 +34,11 @@ const inHerito = (function () {
             });
         },
 
+        /**
+         * Generates a unique id if one does not exist
+         * @function generateUUID
+         * @returns {string}
+         */
         generateUUID = () => {
             let
                 dateNow = new Date(),
@@ -42,7 +47,6 @@ const inHerito = (function () {
                     dateNow = Math.floor(dateNow / 16);
                     return (c == 'x' ? randomness : (randomness & 0x3 | 0x8)).toString(16);
                 });
-
             return uuid;
         },
 
@@ -61,16 +65,12 @@ const inHerito = (function () {
             });
 
             instance['id'] ? instance.id = instance.id : instance.id = generateUUID();
-            Array.isArray(instance['inherit']) ? inherit(instance, superProps) : false;
+            Array.isArray(instance['implements']) ? inherit(instance, superProps) : false;
             instance['debug'] ? logObject(instance) : false;
 
             return instance;
         };
 
-    return {
-        create: create
-    };
+    return {create};
 
 })();
-
-module.exports = inHerito;
