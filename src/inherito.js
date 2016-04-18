@@ -74,3 +74,5 @@ let inHerito = (function () {
     return {create};
 
 })();
+
+module.exports = inHerito;
