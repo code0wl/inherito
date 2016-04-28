@@ -9,12 +9,11 @@
 <main class="container">
     <header class="inherito"></header>
     <h3>Example page of how inHerito works. Make new objects and let them inherit from other ones</h3>
-
-    <strong>List of rules that apply</strong>
     <ul>
         <li>Animal dog is the blue print</li>
         <li>Robot dog is allowed to inherit anything from the blueprint</li>
         <li>Robot dog is not allowed to be a blueprint because it is an implementation of animal dog</li>
+        <li>Robot dog implements tail and bark from Dog blueprint</li>
     </ul>
 
     <article class="dogs"></article>
@@ -31,7 +30,6 @@
         brain: 'I have a brain',
         tail: 'I have a tail',
         bark: true,
-        debug: true,
         view: {
             tag: 'real-dog',
             el: '.dogs',
@@ -43,7 +41,6 @@
         type: 'Robot dog',
         name: 'My name is, Terminator',
         material: 'Metal',
-        debug: true,
         race: 'Robot domination race',
         implements: ['tail', 'bark'],
         view: {
@@ -52,7 +49,6 @@
             template: `<img src="media/roboto.jpg">`
         }
     });
-
 </script>
 
 </body>

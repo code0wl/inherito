@@ -1,10 +1,8 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
-import 'mocha-jsdom';
 import concat from 'gulp-concat';
 import browserSync from 'browser-sync';
 import uglify from 'gulp-uglify';
-import mocha from 'gulp-mocha';
 import eslint from 'gulp-eslint';
 import taskListing from 'gulp-task-listing';
 import copy from 'gulp-contrib-copy';
@@ -24,17 +22,6 @@ gulp.task('js', () => {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('test', () => {
-    return gulp
-        .src(['test/**/*.js'], {read: false})
-        .pipe(mocha({
-            compilers: {
-                js: babel
-            },
-            reporter: 'nyan'
-        }));
-});
-
 gulp.task('generate-example', function() {
     gulp.src('example/*.html')
         .pipe(copy())
@@ -45,7 +32,7 @@ gulp.task('generate-example', function() {
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('default', ['js', 'test']);
+gulp.task('default', ['js']);
 
 gulp.task('js-watch', ['js', 'generate-example'], browserSync.reload);
 

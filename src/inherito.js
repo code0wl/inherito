@@ -10,7 +10,7 @@ const inHerito = (function (d) {
          * @private
          */
         logObject = (instance) => {
-            Object.defineProperty(instance, 'debug', {writable: true, enumerable: false});
+            Object.defineProperty(instance, 'logger', {enumerable: false});
             console.log(instance);
         },
 
@@ -49,10 +49,8 @@ const inHerito = (function (d) {
         },
 
         /**
-         *
-         * @param template
-         * @param tag
-         * @param el
+         * @function renders elements to the DOM
+         * @param instance
          * @param customTag
          */
         render = (instance, customTag) => {
@@ -64,7 +62,10 @@ const inHerito = (function (d) {
             elementInstance.innerHTML = instanceView.template;
 
             keys.forEach((key, index) => {
-                elementInstance.innerHTML += `<p>${key} :  ${instance[key]}</p>`
+                if(key !== 'view') {
+                    elementInstance.innerHTML += `<p>${key} :  ${instance[key]}</p>`;
+                }
+
             });
 
             element.appendChild(elementInstance);
@@ -101,13 +102,11 @@ const inHerito = (function (d) {
             instance['id'] ? instance['id'] : instance.id = generateUUID();
             instance['view'] ? registerElements(instance) : false;
             Array.isArray(instance['implements']) ? inherit(instance, superProps) : false;
-            instance['debug'] ? logObject(instance) : false;
+            instance['logger'] ? logObject(instance) : false;
 
             return instance;
         };
 
     return {create};
 
-})(window.document);
-
-module.exports = inHerito;
+})(document);

@@ -16,7 +16,6 @@
     "babel-core": "*",
     "babel-preset-es2015": "*",
     "browser-sync": "*",
-    "chai": "*",
     "defs": "*",
     "eslint": "*",
     "gulp": "^3.9.0",
@@ -25,17 +24,11 @@
     "gulp-contrib-copy": "^0.1.2",
     "gulp-eslint": "*",
     "gulp-inject": "*",
-    "gulp-mocha": "*",
-    "gulp-mocha-phantomjs": "*",
     "gulp-sourcemaps": "*",
     "gulp-task-listing": "*",
     "gulp-template-html": "*",
     "gulp-uglify": "*",
-    "jsdom": "^8.4.1",
-    "mocha": "*",
-    "mocha-jsdom": "^1.1.0",
-    "regenerator": "*",
-    "should": "*"
+    "regenerator": "*"
   },
   "scripts": {
     "test": "mocha --compilers js:babel/register"
