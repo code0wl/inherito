@@ -10,17 +10,14 @@
     <header class="inherito"></header>
     <h3>Example page of how inHerito works. Make new objects and let them inherit from other ones</h3>
 
-    <article>
-        <section>
-            <h3>Normal dog</h3>
-            <img src=""/>
-        </section>
+    <strong>List of rules that apply</strong>
+    <ul>
+        <li>Animal dog is the blue print</li>
+        <li>Robot dog is allowed to inherit anything from the blueprint</li>
+        <li>Robot dog is not allowed to be a blueprint because it is an implementation of animal dog</li>
+    </ul>
 
-        <section>
-            <h3>Robot dog</h3>
-            <img src=""/>
-        </section>
-    </article>
+    <article class="dogs"></article>
 </main>
 
 <!-- include inherito -->
@@ -28,25 +25,34 @@
 
 <!-- inHerito init and instances -->
 <script>
-    var Dog = inHerito.create({
-        type: 'First dog ever',
+    var dogBluePrint = inHerito.create({
+        type: 'Dog blue print',
         name: 'My name is, Laddie',
         brain: 'I have a brain',
         tail: 'I have a tail',
         bark: true,
         debug: true,
-        img: 'http://i1.wp.com/boingydog.com/wp-content/uploads/2013/06/SantasLittleHelper1.gif'
+        view: {
+            tag: 'real-dog',
+            el: '.dogs',
+            template: `<img src="media/dog.jpg">`
+        }
     });
 
-    var RobotDog = Dog.create({
+    var robotDog = dogBluePrint.create({
         type: 'Robot dog',
         name: 'My name is, Terminator',
         material: 'Metal',
         debug: true,
         race: 'Robot domination race',
         implements: ['tail', 'bark'],
-        img: 'http://torontopubliclibrary.typepad.com/.a/6a00e5509ea6a18834017d3d26003a970c-800wi'
+        view: {
+            tag: 'robot-dog',
+            el: '.dogs',
+            template: `<img src="media/roboto.jpg">`
+        }
     });
+
 </script>
 
 </body>

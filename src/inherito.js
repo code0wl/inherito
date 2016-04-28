@@ -1,9 +1,8 @@
-let inHerito = (function () {
+const inHerito = (function (d) {
 
     'use strict';
 
-    const
-
+    let
         /**
          * Log object if object has debug set to true
          * @function logObject
@@ -25,8 +24,7 @@ let inHerito = (function () {
         inherit = (instance, superProps) => {
             Object.defineProperty(instance, 'implements', {writable: false, enumerable: false});
 
-            let mixins = instance.implements,
-                inheritedObject = {};
+            let mixins = instance.implements, inheritedObject = {};
 
             mixins.map((currentValue) => {
                 inheritedObject[currentValue] = superProps[currentValue];
@@ -51,6 +49,42 @@ let inHerito = (function () {
         },
 
         /**
+         *
+         * @param template
+         * @param tag
+         * @param el
+         * @param customTag
+         */
+        render = (instance, customTag) => {
+            let instanceView = instance.view,
+                keys = Object.keys(instance),
+                elementInstance = new customTag(),
+                element = d.querySelector(instanceView.el);
+
+            elementInstance.innerHTML = instanceView.template;
+
+            keys.forEach((key, index) => {
+                elementInstance.innerHTML += `<p>${key} :  ${instance[key]}</p>`
+            });
+
+            element.appendChild(elementInstance);
+        },
+
+        /**
+         * Semantically creates new DOM elements
+         * @function registerElements
+         * @param {object} view
+         */
+        registerElements = (instance) => {
+            if (!instance.view.tag.includes('-')) {
+                console.error('Custom tags must include a hyphen');
+            } else {
+                let registeredTag = d.registerElement(instance.view.tag);
+                instance.view.template ? render(instance, registeredTag) : false;
+            }
+        },
+
+        /**
          * Create object instance and log or render if true
          * @function create
          * @parameter {object} options
@@ -64,7 +98,8 @@ let inHerito = (function () {
                 Object.assign(instance, option);
             });
 
-            instance['id'] ? instance.id = instance.id : instance.id = generateUUID();
+            instance['id'] ? instance['id'] : instance.id = generateUUID();
+            instance['view'] ? registerElements(instance) : false;
             Array.isArray(instance['implements']) ? inherit(instance, superProps) : false;
             instance['debug'] ? logObject(instance) : false;
 
@@ -73,6 +108,6 @@ let inHerito = (function () {
 
     return {create};
 
-})();
+})(window.document);
 
 module.exports = inHerito;

@@ -31,7 +31,9 @@
     "gulp-task-listing": "*",
     "gulp-template-html": "*",
     "gulp-uglify": "*",
+    "jsdom": "^8.4.1",
     "mocha": "*",
+    "mocha-jsdom": "^1.1.0",
     "regenerator": "*",
     "should": "*"
   },

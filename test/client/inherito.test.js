@@ -1,7 +1,11 @@
-var assert = require('assert'),
+var jsdom = require('mocha-jsdom'),
+    assert = require('assert'),
     expect = require('chai').expect;
 
+
 import inHerito from '../../src/inherito';
+
+jsdom();
 
 describe('inHerito', function () {
     it('should be an object', function () {

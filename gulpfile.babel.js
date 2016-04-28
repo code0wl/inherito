@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
+import 'mocha-jsdom';
 import concat from 'gulp-concat';
 import browserSync from 'browser-sync';
 import uglify from 'gulp-uglify';
