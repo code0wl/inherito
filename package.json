@@ -1,6 +1,6 @@
 {
   "name": "inherito",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Has/Is a relationship simplified for JavaScript",
   "main": "index.js",
   "keywords": [
